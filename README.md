@@ -1,5 +1,14 @@
 # nest-graphql-bug
 
+# Installation
+
+```sh
+npm i
+npm start
+```
+
+# Description
+
 1. get single user as observable forks fine
 
 ```graphql
