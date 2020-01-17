@@ -1,0 +1,48 @@
+{
+  "author": {
+    "email": "TrejGun+OpenSource@gmail.com",
+    "name": "TrejGun"
+  },
+  "dependencies": {
+    "@nestjs/common": "6.10.5",
+    "@nestjs/core": "6.10.5",
+    "@nestjs/graphql": "6.5.3",
+    "@nestjs/platform-express": "6.10.5",
+    "apollo-server-express": "2.9.12",
+    "dotenv": "8.2.0",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "6.5.3",
+    "type-graphql": "0.17.5"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "6.10.5",
+    "@trejgun/eslint-config": "0.0.2",
+    "@types/express": "4.17.2",
+    "@types/node": "12.12.14",
+    "eslint": "6.7.2",
+    "husky": "3.1.0",
+    "lint-staged": "9.5.0",
+    "prettier": "1.19.1",
+    "ts-node": "8.5.4",
+    "tsc-watch": "4.0.0",
+    "typescript": "3.7.2"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "name": "nestjs-graphql-observable-bug",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrejGun/nestjs-graphql-observable-bug"
+  },
+  "scripts": {
+    "build": "tsc",
+    "entity:create": "npm run typeorm -- entity:create -n",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "prebuild": "rm -rf dist/",
+    "prod": "NODE_ENV=production node .",
+    "start": "NODE_ENV=development tsc-watch --onSuccess \"node .\" --onFailure \"echo Compilation Failed\""
+  },
+  "title": "Demo of bug in graphql and observable",
+  "version": "0.0.1"
+}

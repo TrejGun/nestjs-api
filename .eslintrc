@@ -1,0 +1,9 @@
+{
+  "root": true,
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "@trejgun/eslint-config/presets/ts"
+  ]
+}
