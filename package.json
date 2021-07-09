@@ -4,7 +4,7 @@
     "name": "TrejGun"
   },
   "dependencies": {
-    "@nestjs/common": "8.0.0",
+    "@nestjs/common": "7.6.5",
     "@nestjs/core": "8.0.0",
     "@nestjs/graphql": "8.0.2",
     "@nestjs/platform-express": "8.0.0",
