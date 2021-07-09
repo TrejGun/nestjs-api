@@ -7,7 +7,6 @@ import {Int} from "type-graphql";
 import {UserType} from "./types";
 import {IUser, UserRole} from "./interfaces";
 
-
 const users = [
   {
     id: 1,
@@ -29,9 +28,9 @@ const users = [
   },
 ];
 
-@Resolver()
+@Resolver(() => UserType)
 export class UserResolver {
-  @Query(_returns => UserType)
+  @Query(() => UserType)
   public getById(@Args({name: "id", type: () => Int}) id: number): Observable<IUser> {
     const user = users.find(user => user.id === id);
     if (!user) {
@@ -40,14 +39,14 @@ export class UserResolver {
     return of(user);
   }
 
-  @Query(_returns => [UserType])
-  public listUsersAsPromise(): Promise<Array<IUser>> {
+  @Query(() => [UserType])
+  public listUsersAsPromise(): Promise<Array<IUser> | undefined> {
     return from(users)
       .pipe(toArray())
       .toPromise();
   }
 
-  @Query(_returns => [UserType])
+  @Query(() => [UserType])
   public listUsersAsObservable(): Observable<IUser> {
     return from(users);
   }
