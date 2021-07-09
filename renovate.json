@@ -1,9 +1,4 @@
 {
-  "extends": ["config:base"],
-  "automerge": true,
-  "automergeType": "pr",
-  "reviewers": ["trejgun"],
-  "major": {
-    "automerge": false
-  }
+  "extends": ["github>trejgun/renovate-config"],
+  "baseBranches": ["master"]
 }

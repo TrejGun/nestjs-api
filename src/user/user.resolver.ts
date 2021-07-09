@@ -1,53 +1,45 @@
-import {from, Observable, of} from "rxjs";
+import {from, Observable, of, firstValueFrom} from "rxjs";
 import {toArray} from "rxjs/operators";
-import {Args, Query, Resolver} from "@nestjs/graphql";
+import {Args, Int, Query, Resolver} from "@nestjs/graphql";
 import {NotFoundException} from "@nestjs/common";
-import {Int} from "type-graphql";
 
 import {UserType} from "./types";
-import {IUser, UserRole} from "./interfaces";
-
-const users = [
-  {
-    id: 1,
-    email: "trejgun+test1@gmail.com",
-    password: "qwerty",
-    roles: [UserRole.User],
-  },
-  {
-    id: 2,
-    email: "trejgun+test2@gmail.com",
-    password: "qwerty",
-    roles: [UserRole.User],
-  },
-  {
-    id: 3,
-    email: "trejgun+test3@gmail.com",
-    password: "qwerty",
-    roles: [UserRole.User],
-  },
-];
+import {IUser} from "./interfaces";
+import {UserService} from "./user.service";
 
 @Resolver(() => UserType)
 export class UserResolver {
+  constructor(private readonly userService: UserService) {}
+
+  @Query(() => [UserType])
+  public listUsersAsPromise(): Promise<Array<IUser>> {
+    const users = this.userService.getList();
+    return firstValueFrom(from(users).pipe(toArray()));
+  }
+
+  @Query(() => [UserType])
+  public listUsersAsObservable(): Observable<Array<IUser>> {
+    const users = this.userService.getList();
+    return from(users).pipe(toArray());
+  }
+
   @Query(() => UserType)
-  public getById(@Args({name: "id", type: () => Int}) id: number): Observable<IUser> {
+  public getByIdAsPromise(@Args({name: "id", type: () => Int}) id: number): Promise<IUser> {
+    const users = this.userService.getList();
+    const user = users.find(user => user.id === id);
+    if (!user) {
+      throw new NotFoundException();
+    }
+    return Promise.resolve(user);
+  }
+
+  @Query(() => UserType)
+  public getByIdAsObservable(@Args({name: "id", type: () => Int}) id: number): Observable<IUser> {
+    const users = this.userService.getList();
     const user = users.find(user => user.id === id);
     if (!user) {
       throw new NotFoundException();
     }
     return of(user);
-  }
-
-  @Query(() => [UserType])
-  public listUsersAsPromise(): Promise<Array<IUser> | undefined> {
-    return from(users)
-      .pipe(toArray())
-      .toPromise();
-  }
-
-  @Query(() => [UserType])
-  public listUsersAsObservable(): Observable<IUser> {
-    return from(users);
   }
 }

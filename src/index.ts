@@ -1,21 +1,19 @@
-import "./env";
 import {NestFactory} from "@nestjs/core";
 
 import {ApplicationModule} from "./app.module";
-
+import {ConfigService} from "@nestjs/config";
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(ApplicationModule);
 
-  await app.listen(process.env.PORT, process.env.HOST, () => {
-    // eslint-disable-next-line no-console
-    console.info(`Express server is running on http://${process.env.HOST}:${process.env.PORT}/`);
+  const configService = app.get(ConfigService);
 
-    if (process.env.NODE_ENV !== "production") {
-      // eslint-disable-next-line no-console
-      console.info(`GraphQL playground is at http://${process.env.HOST}:${process.env.PORT}/graphql`);
-    }
+  const host = configService.get<string>("HOST", "localhost");
+  const port = configService.get<number>("PORT", 3000);
+
+  await app.listen(port, host, () => {
+    console.info(`API server is running on http://${host}:${port}`);
   });
 }
 
-bootstrap();
+void bootstrap();
