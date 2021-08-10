@@ -253,3 +253,4 @@ query getByIdAsObservable {
 
 ## WebSockets
 
+Navigate to http://localhost:3000/ to see it in action
