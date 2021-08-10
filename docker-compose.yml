@@ -3,7 +3,7 @@ version: "3"
 services:
 
   server:
-    image: nestjs-graphql-observable-bug
+    image: nestjs-api
     build:
       context: .
       dockerfile: Dockerfile
