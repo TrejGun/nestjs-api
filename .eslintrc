@@ -1,9 +1,10 @@
 {
-  "root": true,
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
   "extends": [
-    "@trejgun/eslint-config/presets/ts"
-  ]
+    "@gemunionstudio/eslint-config/presets/ts",
+    "@gemunionstudio/eslint-config/rules/jest"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.test.json"
+  },
+  "root": true
 }

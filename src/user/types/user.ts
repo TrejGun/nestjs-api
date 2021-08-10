@@ -1,4 +1,5 @@
 import {Field, Int, ObjectType, registerEnumType} from "@nestjs/graphql";
+
 import {IUser, UserRole} from "../interfaces";
 
 registerEnumType(UserRole, {
@@ -16,5 +17,5 @@ export class UserType implements IUser {
   public password: string;
 
   @Field(_type => [UserRole])
-  public roles: UserRole[];
+  public roles: Array<UserRole>;
 }

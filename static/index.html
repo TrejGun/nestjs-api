@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+  <title>Test</title>
+  <script src="https://unpkg.com/socket.io-client@4.1.3/dist/socket.io.min.js"></script>
+  <script>
+    const socket = io(document.location.origin);
+    console.log(document.location.origin)
+
+    socket.on("exception", e => {
+      console.error(e);
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("listUsersAsVoid").addEventListener("click", e => {
+        e.preventDefault();
+        // this event is defined in events/event.gateway.ts
+        socket.emit("listUsersAsVoid", {});
+      });
+
+      document.getElementById("listUsersAsPromise").addEventListener("click", e => {
+        e.preventDefault();
+        // this event is defined in events/event.gateway.ts
+        socket.emit("listUsersAsPromise", {}, console.log);
+      });
+
+      document.getElementById("getByIdAsPromise").addEventListener("click", e => {
+        e.preventDefault();
+        // this event is defined in events/event.gateway.ts
+        socket.emit("getByIdAsPromise", {id: 1}, console.log);
+      });
+
+      document.getElementById("listUsersAsObservable").addEventListener("click", e => {
+        e.preventDefault();
+        // this event is defined in events/event.gateway.ts
+        socket.emit("listUsersAsObservable", {});
+      });
+
+      document.getElementById("getByIdAsObservable").addEventListener("click", e => {
+        e.preventDefault();
+        // this event is defined in events/event.gateway.ts
+        socket.emit("getByIdAsObservable", {id: 1});
+      });
+    });
+
+    socket.on("listUsersAsVoid", console.log);
+    socket.on("listUsersAsObservable", console.log);
+    socket.on("getByIdAsObservable", console.log);
+
+    window.addEventListener("beforeunload", () => {
+      socket.disconnect();
+    });
+  </script>
+</head>
+<body>
+<p>Open console and press the button</p>
+<button id="listUsersAsVoid">get list of users as void</button>
+<button id="listUsersAsPromise">get list of users as promise</button>
+<button id="getByIdAsPromise">get list of users as promise</button>
+<button id="listUsersAsObservable">get list of users as observable</button>
+<button id="getByIdAsObservable">get single user as observable</button>
+</body>
+</html>

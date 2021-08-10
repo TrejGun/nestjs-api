@@ -1,9 +1,9 @@
 import {Controller, Get, NotFoundException, Param} from "@nestjs/common";
 import {from, Observable, of} from "rxjs";
+import {toArray} from "rxjs/operators";
 
 import {IUser} from "./interfaces";
 import {UserService} from "./user.service";
-import {toArray} from "rxjs/operators";
 
 @Controller("/users")
 export class UserController {

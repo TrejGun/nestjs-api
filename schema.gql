@@ -9,8 +9,8 @@ type UserType {
 }
 
 enum UserRole {
-  User
-  Admin
+  USER
+  ADMIN
 }
 
 type Query {
