@@ -13,31 +13,31 @@
     window.addEventListener("DOMContentLoaded", () => {
       document.getElementById("listUsersAsVoid").addEventListener("click", e => {
         e.preventDefault();
-        // this event is defined in events/event.gateway.ts
+        // this event is defined in user/user.gateway.ts
         socket.emit("listUsersAsVoid", {});
       });
 
       document.getElementById("listUsersAsPromise").addEventListener("click", e => {
         e.preventDefault();
-        // this event is defined in events/event.gateway.ts
+        // this event is defined in user/user.gateway.ts
         socket.emit("listUsersAsPromise", {}, console.log);
       });
 
       document.getElementById("getByIdAsPromise").addEventListener("click", e => {
         e.preventDefault();
-        // this event is defined in events/event.gateway.ts
+        // this event is defined in user/user.gateway.ts
         socket.emit("getByIdAsPromise", {id: 1}, console.log);
       });
 
       document.getElementById("listUsersAsObservable").addEventListener("click", e => {
         e.preventDefault();
-        // this event is defined in events/event.gateway.ts
+        // this event is defined in user/user.gateway.ts
         socket.emit("listUsersAsObservable", {});
       });
 
       document.getElementById("getByIdAsObservable").addEventListener("click", e => {
         e.preventDefault();
-        // this event is defined in events/event.gateway.ts
+        // this event is defined in user/user.gateway.ts
         socket.emit("getByIdAsObservable", {id: 1});
       });
     });
