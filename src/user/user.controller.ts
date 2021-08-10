@@ -1,4 +1,4 @@
-import {Controller, Get, NotFoundException, Param} from "@nestjs/common";
+import {Controller, Get, NotFoundException, Param, ParseIntPipe} from "@nestjs/common";
 import {from, Observable, of} from "rxjs";
 import {toArray} from "rxjs/operators";
 
@@ -22,7 +22,7 @@ export class UserController {
   }
 
   @Get("/promise/:id")
-  public getByIdAsPromise(@Param("id") id: number): Promise<IUser> {
+  public getByIdAsPromise(@Param("id", ParseIntPipe) id: number): Promise<IUser> {
     const users = this.userService.getList();
     const user = users.find(user => user.id === id);
     if (!user) {
@@ -32,7 +32,7 @@ export class UserController {
   }
 
   @Get("/observable/:id")
-  public getByIdAsObservable(@Param("id") id: number): Observable<IUser> {
+  public getByIdAsObservable(@Param("id", ParseIntPipe) id: number): Observable<IUser> {
     const users = this.userService.getList();
     const user = users.find(user => user.id === id);
     if (!user) {
