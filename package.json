@@ -59,6 +59,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "clean": "sh scripts/clean.sh",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint . --fix",
     "prebuild": "rm -rf dist/",
