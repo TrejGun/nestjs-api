@@ -1,6 +1,6 @@
-import {Injectable} from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 
-import {IUser, UserRole} from "./interfaces";
+import { IUser, UserRole } from "./interfaces";
 
 @Injectable()
 export class UserService {

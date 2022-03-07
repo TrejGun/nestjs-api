@@ -1,9 +1,9 @@
-import {Controller, Get, NotFoundException, Param, ParseIntPipe} from "@nestjs/common";
-import {from, Observable, of} from "rxjs";
-import {toArray} from "rxjs/operators";
+import { Controller, Get, NotFoundException, Param, ParseIntPipe } from "@nestjs/common";
+import { from, Observable, of } from "rxjs";
+import { toArray } from "rxjs/operators";
 
-import {IUser} from "./interfaces";
-import {UserService} from "./user.service";
+import { IUser } from "./interfaces";
+import { UserService } from "./user.service";
 
 @Controller("/users")
 export class UserController {

@@ -1,11 +1,11 @@
-import {MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer, WsResponse} from "@nestjs/websockets";
-import {from, Observable, of} from "rxjs";
-import {map} from "rxjs/operators";
-import {Server} from "socket.io";
+import { MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer, WsResponse } from "@nestjs/websockets";
+import { from, Observable, of } from "rxjs";
+import { map } from "rxjs/operators";
+import { Server } from "socket.io";
 
-import {UserService} from "./user.service";
-import {IUser} from "./interfaces";
-import {NotFoundException} from "@nestjs/common";
+import { UserService } from "./user.service";
+import { IUser } from "./interfaces";
+import { NotFoundException } from "@nestjs/common";
 
 @WebSocketGateway()
 export class UserGateway {
@@ -41,7 +41,7 @@ export class UserGateway {
   @SubscribeMessage("listUsersAsObservable")
   public listUsersAsObservable(): Observable<WsResponse<IUser>> {
     const users = this.userService.getList();
-    return from(users).pipe(map(user => ({event: "listUsersAsObservable", data: user})));
+    return from(users).pipe(map(user => ({ event: "listUsersAsObservable", data: user })));
   }
 
   @SubscribeMessage("getByIdAsObservable")
@@ -51,6 +51,6 @@ export class UserGateway {
     if (!user) {
       throw new NotFoundException();
     }
-    return of(user).pipe(map(user => ({event: "getByIdAsObservable", data: user})));
+    return of(user).pipe(map(user => ({ event: "getByIdAsObservable", data: user })));
   }
 }

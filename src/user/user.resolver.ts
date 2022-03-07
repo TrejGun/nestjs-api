@@ -1,11 +1,11 @@
-import {from, Observable, of, firstValueFrom} from "rxjs";
-import {toArray} from "rxjs/operators";
-import {Args, Int, Query, Resolver} from "@nestjs/graphql";
-import {NotFoundException} from "@nestjs/common";
+import { from, Observable, of, firstValueFrom } from "rxjs";
+import { toArray } from "rxjs/operators";
+import { Args, Int, Query, Resolver } from "@nestjs/graphql";
+import { NotFoundException } from "@nestjs/common";
 
-import {UserType} from "./types";
-import {IUser} from "./interfaces";
-import {UserService} from "./user.service";
+import { UserType } from "./types";
+import { IUser } from "./interfaces";
+import { UserService } from "./user.service";
 
 @Resolver(() => UserType)
 export class UserResolver {
@@ -24,7 +24,7 @@ export class UserResolver {
   }
 
   @Query(() => UserType)
-  public getByIdAsPromise(@Args({name: "id", type: () => Int}) id: number): Promise<IUser> {
+  public getByIdAsPromise(@Args({ name: "id", type: () => Int }) id: number): Promise<IUser> {
     const users = this.userService.getList();
     const user = users.find(user => user.id === id);
     if (!user) {
@@ -34,7 +34,7 @@ export class UserResolver {
   }
 
   @Query(() => UserType)
-  public getByIdAsObservable(@Args({name: "id", type: () => Int}) id: number): Observable<IUser> {
+  public getByIdAsObservable(@Args({ name: "id", type: () => Int }) id: number): Observable<IUser> {
     const users = this.userService.getList();
     const user = users.find(user => user.id === id);
     if (!user) {
