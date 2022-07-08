@@ -11,7 +11,7 @@
     "@nestjs/graphql": "10.0.18",
     "@nestjs/platform-express": "9.0.1",
     "@nestjs/platform-socket.io": "9.0.1",
-    "@nestjs/serve-static": "2.2.2",
+    "@nestjs/serve-static": "3.0.0",
     "@nestjs/websockets": "9.0.1",
     "apollo-server-express": "3.9.0",
     "class-transformer": "0.5.1",
