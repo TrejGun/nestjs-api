@@ -4,7 +4,7 @@
     "name": "TrejGun"
   },
   "dependencies": {
-    "@apollo/server": "4.10.5",
+    "@apollo/server": "4.11.0",
     "@nestjs/apollo": "12.2.0",
     "@nestjs/common": "10.3.10",
     "@nestjs/config": "3.2.3",
@@ -29,7 +29,7 @@
     "@nestjs/testing": "10.3.10",
     "@types/express": "4.17.21",
     "@types/jest": "29.5.12",
-    "@types/node": "18.19.43",
+    "@types/node": "18.19.44",
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
     "eslint": "8.57.0",
