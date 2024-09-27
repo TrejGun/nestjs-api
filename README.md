@@ -21,25 +21,19 @@ curl http://localhost:3000/users/promise
     "id": 1,
     "email": "trejgun+test1@gmail.com",
     "password": "qwerty",
-    "roles": [
-      "USER"
-    ]
+    "roles": ["USER"]
   },
   {
     "id": 2,
     "email": "trejgun+test2@gmail.com",
     "password": "qwerty",
-    "roles": [
-      "USER"
-    ]
+    "roles": ["USER"]
   },
   {
     "id": 3,
     "email": "trejgun+test3@gmail.com",
     "password": "qwerty",
-    "roles": [
-      "ADMIN"
-    ]
+    "roles": ["ADMIN"]
   }
 ]
 ```
@@ -55,9 +49,7 @@ curl http://localhost:3000/users/promise/1
   "id": 1,
   "email": "trejgun+test1@gmail.com",
   "password": "qwerty",
-  "roles": [
-    "USER"
-  ]
+  "roles": ["USER"]
 }
 ```
 
@@ -73,25 +65,19 @@ curl http://localhost:3000/users/promise
     "id": 1,
     "email": "trejgun+test1@gmail.com",
     "password": "qwerty",
-    "roles": [
-      "USER"
-    ]
+    "roles": ["USER"]
   },
   {
     "id": 2,
     "email": "trejgun+test2@gmail.com",
     "password": "qwerty",
-    "roles": [
-      "USER"
-    ]
+    "roles": ["USER"]
   },
   {
     "id": 3,
     "email": "trejgun+test3@gmail.com",
     "password": "qwerty",
-    "roles": [
-      "ADMIN"
-    ]
+    "roles": ["ADMIN"]
   }
 ]
 ```
@@ -107,9 +93,7 @@ curl http://localhost:3000/users/promise/1
   "id": 1,
   "email": "trejgun+test1@gmail.com",
   "password": "qwerty",
-  "roles": [
-    "USER"
-  ]
+  "roles": ["USER"]
 }
 ```
 
@@ -120,9 +104,9 @@ Get list of users as promise
 ```gql
 query listUsersAsPromise {
   listUsersAsPromise {
-    id,
-    email,
-    roles,
+    id
+    email
+    roles
   }
 }
 ```
@@ -134,23 +118,17 @@ query listUsersAsPromise {
       {
         "id": 1,
         "email": "trejgun+test1@gmail.com",
-        "roles": [
-          "USER"
-        ]
+        "roles": ["USER"]
       },
       {
         "id": 2,
         "email": "trejgun+test2@gmail.com",
-        "roles": [
-          "USER"
-        ]
+        "roles": ["USER"]
       },
       {
         "id": 3,
         "email": "trejgun+test3@gmail.com",
-        "roles": [
-          "ADMIN"
-        ]
+        "roles": ["ADMIN"]
       }
     ]
   }
@@ -161,10 +139,10 @@ Get single user as promise
 
 ```gql
 query getByIdAsPromise {
-  getByIdAsPromise (id: 1){
-    id,
-    email,
-    roles,
+  getByIdAsPromise(id: 1) {
+    id
+    email
+    roles
   }
 }
 ```
@@ -175,9 +153,7 @@ query getByIdAsPromise {
     "getByIdAsPromise": {
       "id": 1,
       "email": "trejgun+test1@gmail.com",
-      "roles": [
-        "USER"
-      ]
+      "roles": ["USER"]
     }
   }
 }
@@ -188,9 +164,9 @@ Get list of users as observable
 ```gql
 query listUsersAsObservable {
   listUsersAsObservable {
-    id,
-    email,
-    roles,
+    id
+    email
+    roles
   }
 }
 ```
@@ -202,23 +178,17 @@ query listUsersAsObservable {
       {
         "id": 1,
         "email": "trejgun+test1@gmail.com",
-        "roles": [
-          "USER"
-        ]
+        "roles": ["USER"]
       },
       {
         "id": 2,
         "email": "trejgun+test2@gmail.com",
-        "roles": [
-          "USER"
-        ]
+        "roles": ["USER"]
       },
       {
         "id": 3,
         "email": "trejgun+test3@gmail.com",
-        "roles": [
-          "ADMIN"
-        ]
+        "roles": ["ADMIN"]
       }
     ]
   }
@@ -229,10 +199,10 @@ Get single user as observable
 
 ```gql
 query getByIdAsObservable {
-  getByIdAsObservable (id: 1){
-    id,
-    email,
-    roles,
+  getByIdAsObservable(id: 1) {
+    id
+    email
+    roles
   }
 }
 ```
@@ -243,9 +213,7 @@ query getByIdAsObservable {
     "getByIdAsObservable": {
       "id": 1,
       "email": "trejgun+test1@gmail.com",
-      "roles": [
-        "USER"
-      ]
+      "roles": ["USER"]
     }
   }
 }

@@ -24,10 +24,9 @@ describe("UserService", () => {
   });
 
   describe("getList", () => {
-    it("should return a list", done => {
+    it("should return a list", () => {
       const list = userService.getList();
       expect(list.length).toEqual(3);
-      done();
     });
   });
 });
